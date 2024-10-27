@@ -1,14 +1,12 @@
-
+import './index.css'
 import './App.css';
-import {Button} from "@mui/material"
-import { MainFile } from './MainFile';
+import Login from './components/Auth/Login';
 
 function App() {
   return (
     <div className="App">
-     <MainFile />
-      <Button variant='contained'>hello </Button>
-    </div>
+      <Login />
+     </div>
   );
 }
 
