@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 
-const Login = () => {
+const Login = ({handleLogin}) => {
+  // console.log(handleLogin)
+
+  
 
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
-   console.log(email);
-   console.log(password);
-
 
   const submitHandler=(e)=>{
     e.preventDefault();
-    console.log("hello submit");
+     handleLogin(email,password)
+     setEmail("")
+     setPassword("")
 
   }
   return(
@@ -19,10 +21,11 @@ const Login = () => {
           <form 
           onSubmit={(e)=>{ submitHandler(e)  }} className='flex text-center flex-col items-center justify-center'>
             <input
+           
             required
             value={email}
             onChange={(e)=>{setEmail(e.target.value)}}
-             className='border-2 text-center border-emerald-600 py-3 px-5 mt-3 outline-none rounded-full text-xl  bg-transparent placeholder:text-black' type='email' placeholder='enter your email'/>
+             className='border-2 text-white text-center border-emerald-600 py-3 px-5 mt-3 outline-none rounded-full text-xl  bg-transparent placeholder:text-white' type='text' placeholder='enter your email'/>
             <input 
             required
             value={password}
