@@ -5,26 +5,38 @@ const CreateTask = ({data}) => {
 const [title, setTitle]= useState('')
 const [date, setDate] = useState('')
 const [category, setCategory] = useState('')
-const [desc, setDesc] = useState(' ')
-const [assign, setAssign] = useState(' ')
+const [desc, setDesc] = useState('')
+const [assign, setAssign] = useState('');
 
-const [task, setTask] = useState({})
+const [newTask, setNewTask] = useState({})
 
 
   const submitHandler=(e)=>{
     e.preventDefault();
-    setTask({title,date,category,desc,active:false,newTask:true, completed:false, failed:false})
+    setNewTask({title,date,category,desc,active:false,newTask:true, completed:false, failed:false})
     // console.log(desc,assign,title)
     // console.log("total user",data.employees)
     // console.log("hello",task)
    data.employees.forEach(function(emp){
-    console.log("hello",emp.name)
-   if(assign == emp.name){
-    console.log("emp ",emp)
-   }
+    console.log("Assigned Name:", assign, "| Employee Name:", emp.name);
+    if (assign === emp.name) {
+      console.log("before push", emp)
+      emp.tasks.push(newTask);
+      emp.taskNumber.NewTask= emp.taskNumber.newTask+1
+      console.log("after push",emp)
+
+    }
+    
+    
 
    })
+
+
+   localStorage.setItem('employees',JSON.stringify)
+   console.log(data.employees)
+
   }
+
   return (
     <div className="p-5 mt-7 rounded">
         <form onSubmit={(e)=>{
