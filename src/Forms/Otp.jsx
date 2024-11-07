@@ -1,5 +1,5 @@
 import { Numbers, NumbersOutlined, WhatsApp } from '@mui/icons-material'
-import { Input, Switch } from '@mui/material'
+import { Input, Switch, TextField } from '@mui/material'
 import React from 'react'
 
 const Otp = () => {
@@ -58,9 +58,23 @@ const Otp = () => {
           </p>
         </div>
 
-        <div className=' flex mt-5 flex-col w-full'>
-        <label className='flex p-2 '>Enter Your OTP here</label>
-        <Input style={{Otp}}  ></Input>
+        <div className=' flex  mt-5 justify-start  w-full flex-col'>
+        <label className=' p-2 flex'>Enter Your OTP here</label>
+        <div className='flex space-x-2 '>
+        {Array(4)
+          .fill(" ")
+          .map((_, index) => (
+            <TextField
+              key={index}
+           variant='standard'
+              inputProps={{
+                maxLength: 1,
+                className: "text-center ",
+              }}
+              className="w-12  outline-none bg-transparent  h-12 text-lg font-semibold  "
+            />
+          ))}
+          </div>
             {/* <input type='text' className=' underline underline-offset-2 bg-transparent hover:bg-none  active:bg-none  w-full ' /> */}
           </div>
         </div>
