@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 body{
-    background-color: black;
+    background-color:gray;
 }
 #taskList::-webkit-scrollbar{
     display: none;
