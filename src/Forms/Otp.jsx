@@ -4,6 +4,9 @@ import React from 'react'
 
 const Otp = () => {
   return (
+    <form>
+
+   
     <div className=' grid grid-cols-11 w-full h-screen '>
        {/* this is left section  */}
       <div className='flex text-white  flex-col  px-8  col-span-5 h-screen'  style={{
@@ -81,7 +84,7 @@ const Otp = () => {
 
         
         <div className='w-full  pt-8 flex justify-start  '>
-          <button className=' w-full  text-[#FFFFFF]  font-lora font-bold text-lg  text-center justify-start h-[50px]  rounded-[6px] bg-[#1ABC9C]'>Login</button>
+          <button type='submit' className=' w-full  text-[#FFFFFF]  font-lora font-bold text-lg  text-center justify-start h-[50px]  rounded-[6px] bg-[#1ABC9C]'>Login</button>
         </div>
         
         <div className='flex justify-start mt-5'>
@@ -89,6 +92,7 @@ const Otp = () => {
         </div>
       </div>
     </div>
+    </form>
   )
 }
 
