@@ -12,10 +12,18 @@ const Sidebar = () => {
     { text: 'Employee', icon: <Group /> },
     { text: 'Leave', icon: <Event /> },
     { text: 'Department', icon: <Category /> },
+    { text: 'Training', icon: <Event /> },
+    { text: 'Reports', icon: <Event /> },
+    { text: 'Project Management', icon: <Event /> },
+    { text: 'Device', icon: <Event /> },
+
+
+
+
   ];
 
   return (
-    <div className="w-64 bg-gray-100 p-4">
+    <div className="w-64 h-full bg-gray-100 p-4">
       <h2 className="text-xl font-bold text-green-600">HRMS</h2>
       <List>
         {menuItems.map((item, index) => (

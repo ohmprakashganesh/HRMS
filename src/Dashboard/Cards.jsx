@@ -1,4 +1,5 @@
 // Cards.js
+import { RoundedCornerRounded } from '@mui/icons-material';
 import { Card, CardContent, Typography } from '@mui/material';
 
 const CardData = [
@@ -10,16 +11,34 @@ const CardData = [
 
 const Cards = () => {
   return (
-    <div className="grid grid-cols-4 gap-4 p-4">
-      {CardData.map((data, index) => (
-        <Card key={index} className={`${data.color} p-4`}>
-          <CardContent>
-            <Typography variant="h6">{data.title}</Typography>
-            <Typography variant="h4">{data.count}</Typography>
-            <Typography variant="caption">{data.percentage}</Typography>
-          </CardContent>
-        </Card>
-      ))}
+
+    // <div key={index} className={`${data.color}`} >
+
+
+    <div className="gap-2 w-full p-2">
+      <div className='flex justify-between   w-full gap-4 h-24 min-w-40  '>
+
+
+        {CardData.map((data, index) => (
+            <div key={index}  className='w-3/12'>
+
+
+              <CardContent className='flex bg-slate-200 rounded-md  justify-around'>
+                <div className='flex  flex-col mr-3'>
+                  <p className=' '>{data.title}</p>
+                  <p className=''>{data.count} </p>
+                </div>
+
+                <div>
+                  <Typography variant="subtitle1" >{data.percentage}</Typography>
+
+                </div>
+              </CardContent>
+          </div>
+
+        ))}
+      </div>
+
     </div>
   );
 };

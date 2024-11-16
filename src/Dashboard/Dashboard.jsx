@@ -7,16 +7,17 @@ import Data from './Data'
 
 const Dashboard = () => {
   return (
-    <div className=" grid grid-cols-4">
-        <div>
+    <div className="flex gap-4">
+        <div  className='bg-yellow-700'>
         <Sidebar />
         </div>
-        <div className='col-span-3' >
+        <div className='w-full bg-slate-600' >
         <Navbar />
         <Cards />
         <GraphBody />
         <Data />
         </div>
+
    
     
      

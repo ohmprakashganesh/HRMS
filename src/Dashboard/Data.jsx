@@ -10,7 +10,7 @@ const employees = [
 
 const Data = () => {
   return (
-    <div className="p-4 bg-white shadow-md rounded-md">
+    <div className="p-4 mt-5  bg-white shadow-md rounded-md">
       <h3 className="text-lg font-semibold">Employee Award</h3>
       <Table>
         <TableHead>
