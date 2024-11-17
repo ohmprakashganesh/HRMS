@@ -13,6 +13,14 @@ const GraphBody = () => {
     setChart(e);
    }
 
+   const employees = [
+    { name: 'Marvin McKinney', applied: 'sick', reason: 'reason fo leave', time: '2024-12-1' },
+    { name: 'kavin McKinney', applied: 'fever', reason: 'reason fo leave', time: '2024-12-1' },
+    { name: 'sabin McKinney', applied: 'funeral', reason: 'reason fo leave', time: '2024-12-1' },
+    { name: 'kavin McKinney', applied: 'fever', reason: 'reason fo leave', time: '2024-12-1' },
+    { name: 'sabin McKinney', applied: 'funeral', reason: 'reason fo leave', time: '2024-12-1' },
+    { name: 'rabin McKinney', applied: 'degeree ', reason: 'reason fo leave', time: '2024-12-1' },
+  ];
 
   const data = {
     labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
@@ -89,49 +97,27 @@ const GraphBody = () => {
       </div>
     </div>
      
-     <div className='col-span-2 mx-5 flex flex-col bg-white rounded-md shadow-md shadow-gray-500'>
-      <div className='flex j font-lora sm:text-xl justify-between p-5'><p >Leave Request</p> <button> view all</button></div>
-      <div className='flex flex-row gap-5 h-fit bg-teal-400 rounded-md items-center' >
-        <icon>
-       <Avatar></Avatar>
-        </icon>
-        <desc className='flex flex-col'>
-          <p className='w-full font-bold font-lora'>Mavin mckinney <span className='font-normal'>applied for sick</span></p>
-          <p className='w-full'>reason of leave</p>
-          <p className='w-full'>1 hour ago </p>
-        </desc>
-        <div>
-          <Button variant='outlined' color='primary'>approved</Button>
-        </div>
-      </div>
+     <div className='col-span-2 mx-5 flex flex-col max-h-80 overflow-y-auto bg-white rounded-md shadow-md shadow-gray-500'>
+      <div className='flex font-lora sm:text-xl justify-between  p-5'><p >Leave Request</p> <button> view all</button></div>
 
-      <div className='flex flex-row gap-5 h-fit bg-teal-400 rounded-md items-center' >
-        <icon>
-       <Avatar></Avatar>
-        </icon>
-        <desc className='flex flex-col'>
-          <p className='w-full font-bold font-lora'>Mavin mckinney <span className='font-normal'>applied for sick</span></p>
-          <p className='w-full'>reason of leave</p>
-          <p className='w-full'>1 hour ago </p>
-        </desc>
-        <div>
-          <Button variant='outlined' color='primary'>approved</Button>
-        </div>
-      </div>
+      { employees.map((data, index)=>(
+           <div key={index} className='flex mb-2 flex-row w-full  gap-5 h-fit bg-teal-400 rounded-md items-center' >
+           <icon className=" pl-2">
+          <Avatar></Avatar>
+           </icon>
+           <desc className='flex  justify-start flex-col w-3/5'>
+             <p className='w-full flex p-0 m-0 font-bold font-lora text-sm overflow-x-auto'>{data.name} <span className='font-normal'>{data.applied}</span></p>
+             <p className='w-full  flex'>{data.reason}</p>
+             <p className='w-full  flex text-gray-400' >{data.time} </p>
+           </desc>
+           <div className="">
+             <button className='bg-white rounded-md p-1 mr-2 ' variant='outlined' color='primary'>approved</button>
+           </div>
+         </div>
+      )
 
-      <div className='flex flex-row gap-5 h-fit bg-teal-400 rounded-md items-center' >
-        <icon>
-       <Avatar></Avatar>
-        </icon>
-        <desc className='flex flex-col'>
-          <p className='w-full font-bold font-lora'>Mavin mckinney <span className='font-normal'>applied for sick</span></p>
-          <p className='w-full'>reason of leave</p>
-          <p className='w-full'>1 hour ago </p>
-        </desc>
-        <div>
-          <Button variant='outlined' color='primary'>approved</Button>
-        </div>
-      </div>
+      )}
+      
 
      </div>
 

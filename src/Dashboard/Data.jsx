@@ -10,8 +10,8 @@ const employees = [
 
 const Data = () => {
   return (
-    <div className="p-4 mt-5  bg-white shadow-md rounded-md">
-      <h3 className="text-lg font-semibold">Employee Award</h3>
+    <div className="p-4 mt-5 w-full flex  bg-white shadow-md rounded-md">
+      <div>
       <Table>
         <TableHead>
           <TableRow>
@@ -36,8 +36,18 @@ const Data = () => {
           ))}
         </TableBody>
       </Table>
-      <Button variant="contained" className="mt-4">Download</Button>
-    </div>
+      <h3 className="text-lg font-semibold">Employee Award</h3>
+     
+     <Button variant="contained" className="mt-4">Download</Button>
+   </div>
+   <div className='notice '>
+    <div></div>
+
+   </div>
+
+
+      </div>
+    
   );
 };
 
