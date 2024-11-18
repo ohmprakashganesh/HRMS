@@ -6,12 +6,12 @@ import GraphBody from './Graphbody'
 import Data from './Data'
 
 const Dashboard = () => {
-  return (
-    <div className="flex gap-4">
-        <div  className='bg-yellow-700'>
+  return ( 
+    <div className="flex gap-4 mt-2">
+        <div  className='bg-slate-200'>
         <Sidebar />
         </div>
-        <div className='w-full bg-slate-600' >
+        <div className='w-full bg-slate-200 ml-2 ' >
         <Navbar />
         <Cards />
         <GraphBody />

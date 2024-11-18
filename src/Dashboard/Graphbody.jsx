@@ -2,24 +2,31 @@ import React, { useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Avatar, Button, Typography } from '@mui/material';
+import { color } from 'chart.js/helpers';
+import { BorderBottom, Chat } from '@mui/icons-material';
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { green } from '@mui/material/colors';
+
 
 // Register the necessary components with Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const GraphBody = () => {
-  const [chart, setChart] = useState('week')
+  const [dat, setChart] = useState('week')
 
-   const setting=(e)=>{
-    setChart(e);
+   const setting=(datas)=>{
+    setChart(datas);
+    console.log(dat)
    }
 
+
    const employees = [
-    { name: 'Marvin McKinney', applied: 'sick', reason: 'reason fo leave', time: '2024-12-1' },
-    { name: 'kavin McKinney', applied: 'fever', reason: 'reason fo leave', time: '2024-12-1' },
-    { name: 'sabin McKinney', applied: 'funeral', reason: 'reason fo leave', time: '2024-12-1' },
-    { name: 'kavin McKinney', applied: 'fever', reason: 'reason fo leave', time: '2024-12-1' },
-    { name: 'sabin McKinney', applied: 'funeral', reason: 'reason fo leave', time: '2024-12-1' },
-    { name: 'rabin McKinney', applied: 'degeree ', reason: 'reason fo leave', time: '2024-12-1' },
+    { name: 'Marvin McKinney', applied: 'sick', reason: 'reason fo leave', time: '2024-12-1', status:'pending' },
+    { name: 'kavin McKinney', applied: 'fever', reason: 'reason fo leave', time: '2024-12-1' , status:'approved'},
+    { name: 'sabin McKinney', applied: 'funeral', reason: 'reason fo leave', time: '2024-12-1', status:'pending' },
+    { name: 'sabin McKinney', applied: 'fever', reason: 'reason fo leave', time: '2024-12-1', status:'cancelled' },
+    { name: 'sabin McKinney', applied: 'funeral', reason: 'reason fo leave', time: '2024-12-1', status:'approved' },
+    { name: 'rabin McKinney', applied: 'degeree ', reason: 'reason fo leave', time: '2024-12-1', status:'pending' },
   ];
 
   const data = {
@@ -27,8 +34,14 @@ const GraphBody = () => {
     datasets: [
       {
         label: 'Efficiency',
-        data: [12, 19, 3, 5, 2, 3, 7],
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        data: [65, 59, 80, 81, 56, 55,100], // Replace with your data
+        backgroundColor: '#1ABC9C', // Blue color with some transparency
+        borderColor: '#1ABC9C', // Solid blue border
+        borderWidth: 1,
+        borderRadius: 10, // Rounded corners
+        borderSkipped: false, // Apply border radius to both top and bottom
+        // Optional: Set maxBarThickness for consistent bar width
+        maxBarThickness: 40,
       },
     ],
   };
@@ -38,8 +51,14 @@ const GraphBody = () => {
     datasets: [
       {
         label: 'Efficiency',
-        data: [12, 19, 3, 5, 2, 3, 7],
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        data: [5, 50, 20, 101, 76, 55], // Replace with your data
+        backgroundColor: '#1ABC9C', // Blue color with some transparency
+        borderColor: '#1ABC9C', // Solid blue border
+        borderWidth: 1,
+        borderRadius: 10, // Rounded corners
+        borderSkipped: false, // Apply border radius to both top and bottom
+        // Optional: Set maxBarThickness for consistent bar width
+        maxBarThickness: 40,
       },
     ],
   };
@@ -49,8 +68,14 @@ const GraphBody = () => {
     datasets: [
       {
         label: 'Efficiency',
-        data: [12, 19, 3, 5, 2, 3, 7],
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        data: [16, 109, 8, 19, 56, 55], // Replace with your data
+        backgroundColor: '#1ABC9C', // Blue color with some transparency
+        borderColor: '#1ABC9C', // Solid blue border
+        borderWidth: 1,
+        borderRadius: 10, // Rounded corners
+        borderSkipped: false, // Apply border radius to both top and bottom
+        // Optional: Set maxBarThickness for consistent bar width
+        maxBarThickness: 40,
       },
     ],
   };
@@ -70,15 +95,22 @@ const GraphBody = () => {
     scales: {
       x: {
         beginAtZero: true,
+        grid: {
+          color: 'rgba(0,0,0,0)', // Correct grid color syntax
+        },
+        ticks: {
+          color: '#555', // Ensure 'ticks' is nested within the axis
+        },
       },
       y: {
         beginAtZero: true,
       },
     },
   };
+  
 
   return (
-    <div className='grid grid-cols-5 mt-5 '>
+    <div className='grid grid-cols-5 mt-2 '>
       
 
  
@@ -86,22 +118,31 @@ const GraphBody = () => {
       <div className='flex w-full'>
       <h3 className="text-lg font-semibold mb-4 w-1/2">Efficiency</h3>
       <div className='flex justify-between w-1/2'>
-        <Button variant='outlined ' color='primary' >Weekly</Button>
-        <Button variant='outlined ' >Monthly</Button>
-        <Button variant='outlined ' >Yearly</Button>
+        <Button onClick={()=>setting('week') } variant='outlined ' color='primary' >Weekly</Button>
+        <Button onClick={()=>setting('month') }  variant='outlined ' >Monthly</Button>
+        <Button  onClick={()=>setting('year') }  variant='outlined ' >Yearly</Button>
 
       </div>
       </div>
+    
       <div className="h-full">
-        <Bar data={data} options={options} />
+
+      {dat === 'week' ? (
+          <Bar data={data} options={options} />
+        ) : dat === 'month' ? (
+          <Bar data={datam} options={options} />
+        ) : (
+          <Bar data={datay} options={options} />
+        )}
+        
       </div>
     </div>
      
      <div className='col-span-2 mx-5 flex flex-col max-h-80 overflow-y-auto bg-white rounded-md shadow-md shadow-gray-500'>
-      <div className='flex font-lora sm:text-xl justify-between  p-5'><p >Leave Request</p> <button> view all</button></div>
+      <div className='flex font-lora sm:text-xl justify-between  p-5'><p >Leave Request</p> <button className=' flex items-center ' > view all <span><MdOutlineKeyboardArrowDown /></span> </button></div>
 
       { employees.map((data, index)=>(
-           <div key={index} className='flex mb-2 flex-row w-full  gap-5 h-fit bg-teal-400 rounded-md items-center' >
+           <div key={index} className='flex mb-2 flex-row w-full  gap-5 h-fit bg-white rounded-md items-center' >
            <icon className=" pl-2">
           <Avatar></Avatar>
            </icon>
@@ -111,7 +152,10 @@ const GraphBody = () => {
              <p className='w-full  flex text-gray-400' >{data.time} </p>
            </desc>
            <div className="">
-             <button className='bg-white rounded-md p-1 mr-2 ' variant='outlined' color='primary'>approved</button>
+             <button className={`bg-green-500 rounded-md p-1 mr-2  ${
+     data.status === 'approved' ? 'bg-light-green' : data.status==='pending' ? 'bg-custom-yellow' :
+     'bg-light-maroon'
+  }`}>approved</button>
            </div>
          </div>
       )
@@ -120,6 +164,7 @@ const GraphBody = () => {
       
 
      </div>
+
 
 
     </div>

@@ -23,7 +23,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 h-full bg-gray-100 p-4">
+    <div className="w-64  bg-slate-600 ml-3 min-h-screen h-full p-4">
       <h2 className="text-xl font-bold text-green-600">HRMS</h2>
       <List>
         {menuItems.map((item, index) => (
