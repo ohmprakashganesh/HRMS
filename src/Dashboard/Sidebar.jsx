@@ -2,7 +2,7 @@
 import { List, ListItem, ListItemIcon, ListItemText, Avatar } from '@mui/material';
 import { Home, Event, Payments, Group, InsertChart, Category } from '@mui/icons-material';
 
-const Sidebar = () => {
+const Sidebar = ({dash, func}) => {
   const menuItems = [
     { text: 'Dashboard', icon: <Home /> },
     { text: 'Attendance', icon: <Event /> },
@@ -23,11 +23,11 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64  bg-slate-600 ml-3 min-h-screen h-full p-4">
+    <div className="w-64  bg-white ml-5 mt-3 min-h-screen h-full p-4">
       <h2 className="text-xl font-bold text-green-600">HRMS</h2>
       <List>
         {menuItems.map((item, index) => (
-          <ListItem button key={index}>
+          <ListItem button key={index} onClick={()=>func(item.text)}>
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.text} />
           </ListItem>

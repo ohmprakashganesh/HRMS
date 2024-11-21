@@ -49,7 +49,7 @@ const Cards = () => {
         {CardData.map((data, index) => (
           <div key={index} className={`w-3/12 rounded-md ${data.color}`}>
             <CardContent className="flex w-full rounded-md justify-around">
-              <div className="flex flex-col w-8/12 mr-3">
+              <div className="flex ml-0 flex-col w-8/12 mr-3">
                 <p>{data.title}</p>
                 <p>{data.count}</p>
               </div>

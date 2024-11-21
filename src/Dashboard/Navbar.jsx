@@ -6,7 +6,7 @@ const Navbar = () => {
 
   
   return (
-    <div className="flex w-full items-center bg-white justify-between p-4 shadow-md">
+    <div className="flex w-full mt-3 items-center bg-white justify-between p-4 shadow-md">
       <search className='w-10/12 flex  px-2 py-1 rounded-md outline outline-custom-green'>
       <Search style={{ marginRight: '8px', color:'#1ABC9C' }}  />
             
