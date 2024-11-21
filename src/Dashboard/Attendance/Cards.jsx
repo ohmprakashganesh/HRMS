@@ -4,7 +4,7 @@ import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 
 const Cards = () => {
   return (
-    <div className='flex gap-5 justify-around flex-wrap bg-slate-200 py-10 h-fit' >
+    <div className='flex gap-5 justify-around flex-wrap bg-slate-200 py-5 h-fit' >
       <div className='bg-white w-[220px] rounded-md shadow-sm shadow-blue-500 h-32'>
       <div className='mx-3'>
         <div className='flex  justify-between  mx-auto my-4'>

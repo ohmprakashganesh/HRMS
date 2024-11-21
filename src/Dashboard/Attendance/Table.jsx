@@ -68,8 +68,8 @@ const data=[
     
 <div>
 
-  <div class="overflow-x-auto">
-    <table class="min-w-full bg-white shadow-md rounded-lg">
+  <div class="overflow-x-auto my-7  ">
+    <table class="min-w-full shadow-md rounded-lg">
       <thead>
         <tr class="bg-gray-100 text-gray-600 text-sm">
           <th class="py-2 px-4 text-left">Date</th>
@@ -84,15 +84,15 @@ const data=[
       </thead>
       <tbody>
         {data.map((data, key)=>(
-             <tr key={data.id} class="text-gray-700 text-sm border-b">
-             <td class="py-2 px-4">{data.date}</td>
+             <tr key={data.id} class="text-gray-700 text-[17px] border-b">
+             <td class="py-2 px-4 ">{data.date}</td>
              <td class="py-2 px-4">{data.employee}</td>
              <td class="py-2 px-4">{data.role}</td>
              <td class="py-2 px-4">
-               <span class="bg-blue-100 text-blue-600 py-1 px-2 rounded-md text-xs">{data.type}</span>
+               <span class="bg-blue-100 text-blue-600 py-1 px-2 rounded-md text-[17px]">{data.type}</span>
              </td>
              <td class="py-2 px-4">
-               <span class="bg-green-100 text-green-600 py-1 px-2 rounded-md  text-xs">{data.status}</span>
+               <span class="bg-green-100 text-green-600 py-1 px-2 rounded-md  text-[17px]">{data.status}</span>
              </td>
              <td class="py-2 px-4">{data.checkin} AM</td>
              <td class="py-2 px-4">{data.checkout} PM</td>

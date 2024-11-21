@@ -6,7 +6,7 @@ import Table from './Table'
 
 const Attendance = () => {
   return (
-    <div>
+    <div className='flex flex-col bg-slate-200'>
     <Head />
     <Cards/>
     <SearchBar/>
