@@ -16,9 +16,9 @@ function App() {
      {/* <Login /> */}
      {/* <SignUp /> */}
      {/* <Otp /> */}
-     {/* <Dashboard/> */}
+     <Dashboard/>
      {/* <Plan/> */}
-     <Attendance/>
+     {/* <Attendance/> */}
     </div>
   );
 }
